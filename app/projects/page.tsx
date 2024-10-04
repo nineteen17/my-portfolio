@@ -65,7 +65,9 @@ export default function Page() {
               <div>
                 <ul className="list-disc ml-6">
                   {project.description.map((bullet, i) => (
-                    <li key={i}>{bullet}</li>
+                    <li key={i} className="text-sm text-muted-foreground">
+                      {bullet}
+                    </li>
                   ))}
                 </ul>
               </div>

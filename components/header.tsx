@@ -82,7 +82,7 @@ export default function Header() {
           <ul className="flex flex-col gap-3 mt-4">
             <li>
               <SheetTrigger asChild>
-                <Link href="/projects">Project</Link>
+                <Link href="/projects">Projects</Link>
               </SheetTrigger>
             </li>
             <li>
