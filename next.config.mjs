@@ -1,11 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: "export",
+  basePath: "/my-portfolio",
+  assetPrefix: "/my-portfolio/",
   images: {
     domains: ["images.credly.com"],
   },
-  output: 'export',
-  basePath: '/my-portfolio',
-  assetPrefix: '/my-portfolio/',
 };
 
 export default nextConfig;
