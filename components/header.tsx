@@ -87,6 +87,11 @@ export default function Header() {
             </li>
             <li>
               <SheetTrigger asChild>
+                <Link href="/certifications">Certifications</Link>
+              </SheetTrigger>
+            </li>
+            <li>
+              <SheetTrigger asChild>
                 <Link href="/about">About</Link>
               </SheetTrigger>
             </li>
