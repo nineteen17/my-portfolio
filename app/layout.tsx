@@ -18,10 +18,16 @@ export const metadata: Metadata = {
 
 export default function Layout({ children }: TLayout) {
   return (
-    <div className={cn(inter.className, "h-full flex flex-col items-center")}>
-      <Header />
-      {children}
-      <Footer />
-    </div>
+    <html>
+      <body>
+        <div
+          className={cn(inter.className, "h-full flex flex-col items-center")}
+        >
+          <Header />
+          {children}
+          <Footer />
+        </div>
+      </body>
+    </html>
   );
 }
