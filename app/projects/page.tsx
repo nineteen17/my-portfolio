@@ -42,11 +42,11 @@ export default function Page() {
   return (
     <section className="px-4 flex flex-col py-6 max-w-3xl mx-auto w-full">
       <div>
-        <Button variant="ghost" className="mt-4" asChild>
+        {/* <Button variant="ghost" className="mt-4" asChild>
           <Link href="/">
             <span>&larr; Go back</span>
           </Link>
-        </Button>
+        </Button> */}
         <h1 className="scroll-m-20 text-4xl font-bold tracking-tight mt-4">
           My Projects
         </h1>

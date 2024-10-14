@@ -1,15 +1,16 @@
 import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription } from "@/components/ui/card";
 import Link from "next/link";
 
 export default function Page() {
   return (
     <main className="px-4 flex flex-col py-6 max-w-3xl mx-auto">
       <div>
-        <Button variant="ghost" className="mt-4" asChild>
+        {/* <Button variant="ghost" className="mt-4" asChild>
           <Link href="/">
             <span>&larr; Go back</span>
           </Link>
-        </Button>
+        </Button> */}
         <h1 className="scroll-m-20 text-4xl font-bold tracking-tight mt-4">
           Reach out to me
         </h1>
@@ -19,9 +20,15 @@ export default function Page() {
       </div>
 
       <div className="mt-8">
-        <p className="leading-7">
-          {"Feel free to reach out if you'd like to discuss potential projects, job opportunities, or anything else, please get in touch via the links in the footer."}
-        </p>
+        <Card>
+          <CardContent>
+            <p className="leading-7">
+              {
+                "Feel free to reach out if you'd like to discuss potential projects, job opportunities, or anything else, please get in touch via the links in the footer."
+              }
+            </p>
+          </CardContent>
+        </Card>
       </div>
     </main>
   );
