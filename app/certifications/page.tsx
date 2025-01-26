@@ -10,6 +10,8 @@ import {
 } from "@/components/ui/card";
 import Link from "next/link";
 import Image from "next/image";
+import ScrollToTop from "react-scroll-to-top";
+import { ArrowUp } from "lucide-react";
 
 const certifications = [
   {
@@ -30,13 +32,14 @@ const certifications = [
     title: "Microsoft Certified Azure Fundamentals",
     date: "June 2023",
     url: "https://www.credly.com/badges/9d2960b7-0211-4c58-8e1c-d91e313bef18/public_url",
-    image: "https://images.credly.com/size/680x680/images/be8fcaeb-c769-4858-b567-ffaaa73ce8cf/image.png",
+    image:
+      "https://images.credly.com/size/680x680/images/be8fcaeb-c769-4858-b567-ffaaa73ce8cf/image.png",
   },
 ];
 
 export default function Page() {
   return (
-    <main className="px-4 flex flex-col py-6 max-w-3xl mx-auto w-full">
+    <main className="px-4 flex flex-col py-6 max-w-6xl mx-auto w-full">
       <div>
         {/* <Button variant="ghost" className="mt-4" asChild>
           <Link href="/">
@@ -76,6 +79,22 @@ export default function Page() {
           </Card>
         ))}
       </div>
+      <ScrollToTop
+        smooth
+        top={200}
+        style={{
+          backgroundColor: "black",
+          color: "white",
+          borderRadius: "50%",
+          width: "50px",
+          height: "50px",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
+        }}
+        component={<ArrowUp />}
+      />
     </main>
   );
 }

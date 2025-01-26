@@ -1,11 +1,38 @@
+"use client";
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import Image from "next/image";
-import { Button } from "@/components//ui/button";
-import { Github, Link as LinkIcon } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Github, ExternalLink, ArrowUp } from "lucide-react";
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import { Navigation, Pagination } from "swiper/modules";
+import ScrollToTop from "react-scroll-to-top";
 
 const projects = [
+  {
+    title: "Protein Compare",
+    description: [
+      "Developed a web application to compare the cost of protein across products, addressing the challenge of confusing pricing caused by varying protein amounts in different brands. Built with Next.js 15, TypeScript, and Tailwind CSS.",
+      "Deployed the application on Vercel for seamless scalability and performance.",
+      "Designed with a mobile-first approach for full responsiveness and a clean, intuitive interface. Integrated modern UI components using ShadCN for consistency.",
+      "Implemented state management with Zustand and form validation using React Hook Form and Zod to ensure smooth user interactions.",
+      "Created to solve the problem of rising whey protein costs and unclear pricing comparisons, providing users with a simple and effective tool to make informed purchasing decisions.",
+      "Currently tracks 100 daily users, monitored using Vercel analytics.",
+    ],
+    website: "https://www.protein-compare.com/",
+    github: "https://github.com/nineteen17/Protein-Price-Calculator-App",
+    technologies: [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "Zustand",
+      "ShadCN",
+    ],
+  },
   {
     title: "Microservice E-Commerce App",
     description: [
@@ -14,15 +41,25 @@ const projects = [
       "Event-Driven Communication: Enhanced system responsiveness and decoupling through asynchronous messaging with RabbitMQ, including a message-driven synchronization mechanism. Services listen for RabbitMQ messages to update local data stores in real-time, ensuring consistent data across the application.",
       "Infrastructure Automation: Applied Infrastructure as Code (IaC) principles with Terraform for efficient cloud resource management.",
       "Frontend Development: Developed a frontend using React and TypeScript, served via NGINX for optimized content delivery.",
-      "Security & Authentication: Implemented robust security measures including authentication, authorization, and rate limiting, supported by NGINX’s request filtering and rate limiting capabilities.",
+      "Security & Authentication: Implemented robust security measures including authentication, authorization, and rate limiting, supported by NGINX's request filtering and rate limiting capabilities.",
       "REST API Design & Implementation: Crafted and deployed RESTful APIs for microservices, facilitating seamless data exchange and integration between frontend and backend systems.",
-      "Database Management: Leveraged MongoDB for efficient data storage and retrieval, implementing schemas for users, products, and orders to support the application’s data persistence needs.",
+      "Database Management: Leveraged MongoDB for efficient data storage and retrieval, implementing schemas for users, products, and orders to support the application's data persistence needs.",
       "CI/CD Implementation: Utilized ArgoCD for continuous deployment, automating and managing the delivery of application updates across environments.",
     ],
-    image: "",
-    website: "",
+    website: null,
     github: "https://github.com/nineteen17/Microservice-E-Commerce-App",
-    visibility: "public",
+    technologies: [
+      "Docker",
+      "Kubernetes",
+      "RabbitMQ",
+      "React",
+      "Express.js",
+      "TypeScript",
+      "NGINX",
+      "AWS",
+      "EKS",
+      "ArgoCD",
+    ],
   },
   {
     title: "Property Rental App",
@@ -31,71 +68,87 @@ const projects = [
       "Cloud Deployment & Management: Successfully deployed and managed the application on Azure, utilizing Azure Kubernetes Service (AKS) for container orchestration, Azure Container Registry (ACR) for image storage, and Docker.",
       "CI/CD Implementation: Engineered a CI/CD pipeline using GitHub Actions, facilitating automated testing and deployment processes.",
     ],
-    image: "",
-    website: "",
+    website: null,
     github: "https://github.com/nineteen17/Property-Rental-App",
-    visibility: "public",
+    technologies: [
+      "MongoDB",
+      "Express.js",
+      "React",
+      "Node.js",
+      "TypeScript",
+      "Azure",
+      "GitHub Actions",
+    ],
   },
 ];
 
-export default function Page() {
+export default function ProjectsPage() {
   return (
-    <section className="px-4 flex flex-col py-6 max-w-3xl mx-auto w-full">
+    <main className="px-4 py-6 max-w-6xl mx-auto w-full">
       <div>
-        {/* <Button variant="ghost" className="mt-4" asChild>
-          <Link href="/">
-            <span>&larr; Go back</span>
-          </Link>
-        </Button> */}
-        <h1 className="scroll-m-20 text-4xl font-bold tracking-tight mt-4">
-          My Projects
-        </h1>
+        <h1 className="text-4xl font-bold tracking-tight mt-4">Projects</h1>
         <p className="text-lg text-muted-foreground mt-2">
-          A list of my projects
+          A showcase of the projects I have created
         </p>
       </div>
-      <div className="mt-8">
+
+      <div className="mt-8 space-y-6">
         {projects.map((project, index) => (
-          <Card
-            key={index}
-            className="w-full flex flex-col justify-between mb-2"
-          >
+          <Card key={index} className="shadow-md">
             <CardHeader>
-              <CardTitle>{project.title}</CardTitle>
-              <div>
-                <ul className="list-disc ml-6">
-                  {project.description.map((bullet, i) => (
-                    <li key={i} className="text-sm text-muted-foreground">
-                      {bullet}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div>
-                <Badge variant="secondary" className="w-fit capitalize mt-2">
-                  {project.visibility}
-                </Badge>
+              <CardTitle className="text-lg font-semibold">
+                {project.title}
+              </CardTitle>
+              <div className="flex flex-wrap gap-2 mt-2">
+                {project.technologies.map((tech, i) => (
+                  <Badge key={i} variant="secondary">
+                    {tech}
+                  </Badge>
+                ))}
               </div>
             </CardHeader>
             <CardContent>
-              <Image
-                src={project.image}
-                alt={``}
-                width={128}
-                height={128}
-                className=""
-              />
+              <ul className="space-y-2 text-sm text-muted-foreground list-disc pl-4">
+                {project.description.map((item, i) => (
+                  <li key={i}>{item}</li>
+                ))}
+              </ul>
+              <div className="mt-4 flex gap-4">
+                {project.website && (
+                  <Link href={project.website} target="_blank">
+                    <Button variant="link" size="sm">
+                      <ExternalLink className="mr-2 h-4 w-4" />
+                      Visit Website
+                    </Button>
+                  </Link>
+                )}
+                <Link href={project.github} target="_blank">
+                  <Button variant="outline" size="sm">
+                    <Github className="mr-2 h-4 w-4" />
+                    View GitHub
+                  </Button>
+                </Link>
+              </div>
             </CardContent>
-            <div className="p-4">
-              <Link href={project.github} target="_blank">
-                <Button variant="link" className="mr-4">
-                  <Github className="mr-2" /> View on GitHub
-                </Button>
-              </Link>
-            </div>
           </Card>
         ))}
       </div>
-    </section>
+      <ScrollToTop
+        smooth
+        top={200}
+        style={{
+          backgroundColor: "black",
+          color: "white",
+          borderRadius: "50%",
+          width: "50px",
+          height: "50px",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
+        }}
+        component={<ArrowUp />}
+      />
+    </main>
   );
 }

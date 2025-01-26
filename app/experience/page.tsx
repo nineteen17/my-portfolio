@@ -30,7 +30,7 @@ const experience = {
 
 export default function Page() {
   return (
-    <main className="px-4 flex flex-col py-6 max-w-3xl mx-auto w-full">
+    <main className="px-4 flex flex-col py-6 max-w-6xl mx-auto w-full">
       <div>
         {/* <Button variant="ghost" className="mt-4" asChild>
           <Link href="/">

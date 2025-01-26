@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function Page() {
   return (
-    <main className="px-4 flex flex-col py-6 max-w-3xl mx-auto">
+    <main className="px-4 flex flex-col py-6 max-w-6xl mx-auto">
       <div>
         {/* <Button variant="ghost" className="mt-4" asChild>
           <Link href="/">

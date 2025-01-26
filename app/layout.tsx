@@ -21,7 +21,7 @@ export default function Layout({ children }: TLayout) {
     <html>
       <body>
         <div
-          className={cn(inter.className, "h-full flex flex-col items-center")}
+          className={cn(inter.className, "h-full w-full flex flex-col items-center")}
         >
           <Header />
           {children}
