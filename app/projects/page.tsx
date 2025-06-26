@@ -14,6 +14,39 @@ import ScrollToTop from "react-scroll-to-top";
 
 const projects = [
   {
+    title: "NoteEarly - Full-Stack Educational Platform",
+    description: [
+      "Developed a comprehensive freemium educational platform designed to enhance reading comprehension skills for children aged 5-12, featuring a multi-tenant architecture supporting admin (parents/teachers) and student user roles with progressive learning modules and real-time analytics.",
+      "Content Management System: Built a CRM-style dashboard enabling educators to create, organize, and manage custom reading modules with standardized templates and vocabulary integration.",
+      "Progressive Learning System: Implemented 10-level reading modules with structured difficulty progression aligned to New Zealand educational standards.",
+      "Multi-Tenant Architecture: Designed secure role-based access control supporting admin accounts (up to 50 students) and PIN-based student authentication.",
+      "Subscription Management: Integrated Stripe payment processing with freemium model (Free/Home/$7mo/Pro/$19mo) including customer portal and webhook handling.",
+      "Analytics & Progress Tracking: Developed comprehensive progress monitoring with visual dashboards, completion tracking, and performance insights.",
+      "Mobile-First Design: Fully responsive interface optimized for tablets and mobile devices with touch-friendly navigation.",
+      "Infrastructure as Code: Terraform modules for DigitalOcean droplet provisioning and DNS management with Docker Compose orchestration.",
+      "Security-First Design: Cloudflare DNS management with WAF (Web Application Firewall) enabled for DDoS protection and comprehensive monitoring.",
+    ],
+    website: "https://noteearly.com",
+    github: "https://github.com/nineteen17/note-early",
+    technologies: [
+      "Next.js 15",
+      "TypeScript",
+      "React",
+      "TailwindCSS",
+      "ShadCN UI",
+      "Node.js",
+      "Express.js",
+      "PostgreSQL",
+      "Drizzle ORM",
+      "Supabase Auth",
+      "Stripe",
+      "Docker",
+      "Terraform",
+      "DigitalOcean",
+      "Cloudflare",
+    ],
+  },
+  {
     title: "Protein Compare",
     description: [
       "Developed a web application to compare the cost of protein across products, addressing the challenge of confusing pricing caused by varying protein amounts in different brands. Built with Next.js 15, TypeScript, and Tailwind CSS.",
@@ -122,12 +155,14 @@ export default function ProjectsPage() {
                     </Button>
                   </Link>
                 )}
-                <Link href={project.github} target="_blank">
-                  <Button variant="outline" size="sm">
-                    <Github className="mr-2 h-4 w-4" />
-                    View GitHub
-                  </Button>
-                </Link>
+                {project.github && (
+                  <Link href={project.github} target="_blank">
+                    <Button variant="outline" size="sm">
+                      <Github className="mr-2 h-4 w-4" />
+                      View GitHub
+                    </Button>
+                  </Link>
+                )}
               </div>
             </CardContent>
           </Card>
